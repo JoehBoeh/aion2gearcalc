@@ -13,7 +13,14 @@ export function loadCatalog() {
   return catalog;
 }
 
-const MANA_MAX = GRADE_POINTS.Unique; // Gold = 4 je Slot
+const LIMITS_URL = new URL('./data/limits.json', import.meta.url);
+let limits = null;
+export function loadLimits() {
+  if (!limits) limits = existsSync(LIMITS_URL) ? JSON.parse(readFileSync(LIMITS_URL, 'utf8')) : { totalPoints: null, boardCaps: {} };
+  return limits;
+}
+
+const MANA_MAX =GRADE_POINTS.Unique; // Gold = 4 je Slot
 const STAR_PTS = 5;
 
 // Slots, die sich Items teilen (Ring 1/2, Ohrring 1/2, Rune 1/2). Armband 1 und 2 nehmen
@@ -94,20 +101,43 @@ export function computeUpgrades(breakdown, { allowCraft = false } = {}) {
     };
   });
 
-  // 3) Daevanion – alle Knoten öffnen
+  // 3) Daevanion – begrenzt durch Daevanion-Punkte (1 Punkt = 1 Knoten)
+  //    - Gesamtbudget: limits.totalPoints (höchste in Global beobachtete Knotenzahl, anpassbar)
+  //    - Brett-Limits: limits.boardCaps (z. B. Ariel aktuell max. 60)
+  //    Die noch freien Punkte werden auf die Bretter mit dem höchsten GS je Knoten verteilt.
+  //    Wert je Knoten = Durchschnitt der noch geschlossenen Knoten des Bretts (die Knoten
+  //    hängen als Pfad zusammen, man kann sich die goldenen also nicht einfach herauspicken).
+  const limits = loadLimits();
   const boardLayout = cat.boards?.[cls] ?? cat.boards?.default ?? null;
   const boards = breakdown.boards.map((b, idx) => {
     const layout = boardLayout?.find((x) => x.name === b.name) ?? boardLayout?.[idx];
-    if (!layout) return { name: b.name, current: b.points, max: null, gain: null, missing: null };
+    const used = Object.values(b.counts).reduce((a, n) => a + n, 0);
+    const total = layout?.total ?? b.totalNodes;
+    const cap = Math.min(total, limits.boardCaps?.[b.name] ?? total);
+    let closed = 0, closedValue = 0;
     const missing = {};
-    let gain = 0;
-    for (const [g, total] of Object.entries(layout.counts)) {
-      const m = Math.max(0, total - (b.counts[g] ?? 0));
+    for (const [g, n] of Object.entries(layout?.counts ?? {})) {
+      const m = Math.max(0, n - (b.counts[g] ?? 0));
       if (m) missing[g] = m;
-      gain += m * (GRADE_POINTS[g] ?? 0);
+      closed += m;
+      closedValue += m * (GRADE_POINTS[g] ?? 0);
     }
-    return { name: b.name, current: b.points, max: b.points + gain, gain, missing };
+    return {
+      name: b.name, current: b.points, used, cap, total,
+      room: Math.max(0, cap - used), perNode: closed ? closedValue / closed : 0, missing,
+      add: 0, gain: 0,
+    };
   });
+  const usedTotal = boards.reduce((a, b) => a + b.used, 0);
+  const pointsLeft = Math.max(0, (limits.totalPoints ?? Infinity) - usedTotal);
+  let left = pointsLeft;
+  for (const b of [...boards].sort((x, y) => y.perNode - x.perNode)) {
+    const add = Math.min(left, b.room);
+    b.add = add;
+    b.gain = Math.round(add * b.perNode);
+    left -= add;
+  }
+  for (const b of boards) b.max = b.current + b.gain;
 
   const sum = (arr, k) => arr.reduce((a, x) => a + (x[k] ?? 0), 0);
   const gearGain = sum(slots, 'potential');
@@ -124,7 +154,7 @@ export function computeUpgrades(breakdown, { allowCraft = false } = {}) {
       actions.push({ slot: s.slotDe, kind: 'swap', label: `${s.swap.name} besorgen & voll ausbauen`, gain: s.potential, detail: s.swap.sources.join(', ') });
     } else for (const st of s.steps) actions.push({ slot: s.slotDe, kind: st.kind, label: st.label, gain: st.gain });
   }
-  for (const b of boards) if (b.gain) actions.push({ slot: `Daevanion ${b.name}`, kind: 'daevanion', label: `${Object.values(b.missing).reduce((a, n) => a + n, 0)} Knoten öffnen (` + Object.entries(b.missing).map(([g, n]) => `${n}× ${GRADE_DE[g] ?? g}`).join(', ') + ')', gain: b.gain });
+  for (const b of boards) if (b.gain) actions.push({ slot: `Daevanion ${b.name}`, kind: 'daevanion', label: `ca. ${b.add} weitere Knoten (Ø ${b.perNode.toFixed(1)} GS je Knoten)`, gain: b.gain, detail: b.cap < b.total ? `Brett-Limit ${b.cap}` : '' });
   actions.sort((a, b) => b.gain - a.gain);
 
   return {
@@ -136,6 +166,7 @@ export function computeUpgrades(breakdown, { allowCraft = false } = {}) {
     max: current + gearGain + dvGain,
     gains: { ...byKind, swap: swapGain, daevanion: dvGain, gear: gearGain, total: gearGain + dvGain },
     slots, boards, actions,
+    daevanion: { totalPoints: limits.totalPoints, used: usedTotal, left: pointsLeft, boardCaps: limits.boardCaps, source: limits.source },
     notes: [
       'Göttersteine sind nicht eingerechnet (Wert je Stein unbekannt).',
       'Manasteine: Ziel ist Gold (4 GS je Slot).',

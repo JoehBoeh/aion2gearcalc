@@ -338,8 +338,10 @@ function renderUpgrades(d, craft) {
       <td class="sum ${s.potential ? 'pos' : 'zero'}">${s.potential ? '+' + s.potential : '0'}</td></tr>`;
   }).join('');
   const dvRows = u.boards.map((b) => `<tr><td class="slot">${esc(b.name)}</td><td>${b.current}</td>
+      <td>${b.used} / ${b.cap}${b.cap < b.total ? ` <span class="dim">(Limit, Brett hat ${b.total})</span>` : ''}</td>
       <td style="text-align:left">${b.missing ? Object.entries(b.missing).map(([gr, n]) => `<span class="g-${gr}">${n}× ${GRADE_DE[gr] || gr}</span>`).join(' · ') || '<span class="dim">komplett</span>' : '<span class="dim">unbekannt</span>'}</td>
-      <td>${b.max ?? '?'}</td><td class="sum ${b.gain ? 'pos' : 'zero'}">${b.gain ? '+' + b.gain : '0'}</td></tr>`).join('');
+      <td>${b.add ? `+${b.add} Knoten` : '<span class="dim">–</span>'}</td>
+      <td class="sum ${b.gain ? 'pos' : 'zero'}">${b.gain ? 'ca. +' + b.gain : '0'}</td></tr>`).join('');
   const cat = u.catalog;
   box.innerHTML = `
   <div class="card">
@@ -349,7 +351,7 @@ function renderUpgrades(d, craft) {
       <div><div class="meta">Jetzt</div><div style="font-size:26px;font-weight:700">${u.current}</div></div>
       <div style="font-size:22px;color:var(--muted)">→</div>
       <div><div class="meta">Maximal erreichbar</div><div style="font-size:26px;font-weight:700;color:var(--accent)">${u.max} <span class="pos" style="font-size:18px">+${g.total}</span></div></div>
-      <div class="gs"><small>nur Ausrüstung: ${u.maxGear} (+${g.gear})<br>Daevanion komplett: +${g.daevanion}<br>${craft ? 'ohne' : 'mit'} Crafting wären es ${other?.max ?? '?'}</small></div>
+      <div class="gs"><small>nur Ausrüstung: ${u.maxGear} (+${g.gear})<br>Daevanion (${u.daevanion.left} Punkte übrig): ca. +${g.daevanion}<br>${craft ? 'ohne' : 'mit'} Crafting wären es ${other?.max ?? '?'}</small></div>
     </div>
     <div class="bar">${bar}</div>
     <div class="legend">${chips}</div>
@@ -359,8 +361,11 @@ function renderUpgrades(d, craft) {
     <tr><th>Slot</th><th>Jetzt</th><th style="text-align:left">Aktuelles Item ausreizen</th><th style="text-align:left">Besseres Item ${craft ? '' : '(ohne Crafting)'}</th><th>Potenzial</th></tr>
     ${slotRows}
   </table></div></div>
-  <div class="card"><h2>Daevanion – fehlende Knoten</h2><div class="tablewrap"><table>
-    <tr><th>Brett</th><th>Jetzt</th><th style="text-align:left">Noch offen</th><th>Max</th><th>Potenzial</th></tr>
+  <div class="card"><h2>Daevanion</h2>
+  <p class="note" style="margin-top:0">Verwendet: <b>${u.daevanion.used}</b> von <b>${u.daevanion.totalPoints ?? '∞'}</b> Punkten (1 Punkt = 1 Knoten; Gesamt = höchster Wert in Global) → <b>${u.daevanion.left}</b> Punkte noch erspielbar.
+  Verteilt auf die Bretter mit dem meisten GS je Knoten; als Wert zählt der Durchschnitt der noch geschlossenen Knoten des Bretts.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Brett</th><th>GS jetzt</th><th>Knoten / Limit</th><th style="text-align:left">Noch geschlossen</th><th>Empfohlen</th><th>Potenzial</th></tr>
     ${dvRows}
   </table></div>
   <p class="note">Item-Daten: ${cat.items} Items aus ${cat.characters} Global-Charakteren, Stand ${new Date(cat.updatedAt).toLocaleDateString('de-DE')} (aktualisieren: <code>npm run catalog</code>).

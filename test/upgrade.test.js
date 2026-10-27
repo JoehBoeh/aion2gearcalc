@@ -25,8 +25,15 @@ assert.equal(u.slots.find((s) => s.slot === 'Torso').potential, 37);
 const e2 = u.slots.find((s) => s.slot === 'Earring2');
 assert.equal(e2.swap.name, 'Enraged Kromede Earrings');
 assert.equal(e2.potential, 142 - (70 + 10 + 6));
-// Daevanion-Brett Nezekan: 62C/10R/12L/4U voll = 62+20+36+16 = 134, aktuell 94
-assert.equal(u.boards[0].max, 134);
+// Daevanion: 278 von 376 Punkten genutzt -> 98 übrig; Ariel max. 60 (1 offen -> +59),
+// Rest (39) geht auf Azphel (zweithöchster Ø-Wert je Knoten)
+assert.equal(u.daevanion.used, 278);
+assert.equal(u.daevanion.left, 98);
+const ariel = u.boards.find((b) => b.name === 'Ariel'), azphel = u.boards.find((b) => b.name === 'Azphel');
+assert.equal(ariel.cap, 60);
+assert.equal(ariel.add, 59);
+assert.equal(azphel.add, 39);
+assert.equal(u.gains.daevanion, 90 + 58);
 assert.ok(uc.max > u.max, 'mit Crafting muss mehr möglich sein');
 console.log('jetzt', u.current, '| max ohne Crafting', u.max, '(Ausrüstung', u.maxGear + ')', '| mit Crafting', uc.max, '(Ausrüstung', uc.maxGear + ')');
 console.log('Hebel:', u.gains);

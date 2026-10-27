@@ -51,6 +51,7 @@ for (const cls of CLASSES) {
 console.log(`${targets.length} Charaktere werden ausgewertet …`);
 
 const boardsDone = new Set();
+let maxNodes = 0;
 for (const [n, t] of targets.entries()) {
   const region = subRegionOf(t.serverId);
   if (!region) continue;
@@ -69,8 +70,10 @@ for (const [n, t] of targets.entries()) {
       msSlots: d.magicStoneSlotCount ?? 0, classNames: d.classNames ?? [], sources: d.sources ?? [], seenBy: [t.cls],
     };
   }
+  const info = await get(`${API}/api/character/info?lang=en-US&${q}`);
+  const nodes = (info?.daevanion?.boardList ?? []).reduce((a, b) => a + (b.openNodeCount || 0), 0);
+  maxNodes = Math.max(maxNodes, nodes);
   if (!boardsDone.has(t.cls)) {
-    const info = await get(`${API}/api/character/info?lang=en-US&${q}`);
     const list = [];
     for (const b of info?.daevanion?.boardList ?? []) {
       const d = await get(`${API}/api/character/daevanion/detail?lang=en-US&${q}&boardId=${b.id}`);
@@ -86,4 +89,14 @@ for (const [n, t] of targets.entries()) {
 
 mkdirSync(new URL('../data/', import.meta.url), { recursive: true });
 writeFileSync(OUT, JSON.stringify(cat, null, 1));
+
+// Daevanion-Gesamtbudget = höchste beobachtete Knotenzahl (Brett-Limits bleiben unverändert)
+const LIM = new URL('../data/limits.json', import.meta.url);
+const lim = existsSync(LIM) ? JSON.parse(readFileSync(LIM, 'utf8')) : { boardCaps: {} };
+if (maxNodes > (lim.totalPoints ?? 0)) {
+  lim.totalPoints = maxNodes;
+  lim.source = `totalPoints = höchste Zahl geöffneter Daevanion-Knoten in der Stichprobe (${new Date().toLocaleDateString('de-DE')}). Werte hier anpassen.`;
+  writeFileSync(LIM, JSON.stringify(lim, null, 2));
+  console.log(`Daevanion-Gesamtbudget auf ${maxNodes} Punkte angehoben.`);
+}
 console.log(`\nFertig: ${Object.keys(cat.items).length} Items aus ${cat.characterCount} Charakteren → data/catalog.json`);

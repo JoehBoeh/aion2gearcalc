@@ -35,7 +35,7 @@ per Haken „Gecraftete Items zulassen“ umschaltbar):
 
 - **Aktuelles Item ausreizen:** Verstärkung auf Maximum, Sterne auf Maximum, alle Manasteine Gold
 - **Besseres Item:** bestes nicht-gecraftetes Item für Slot & Klasse, voll ausgebaut (z. B. Aulamus-Ohrring 70 → Enraged-Kromede-Ohrring 86)
-- **Daevanion:** welche Knoten (nach Farbe) auf jedem Brett noch fehlen
+- **Daevanion:** wie viele Daevanion-Punkte noch erspielbar sind und wohin sie am meisten bringen (siehe unten)
 - **Größte Hebel:** alle Einzelschritte nach GS-Gewinn sortiert
 
 Die Item-Daten (Basisstufe, max. Verstärkung/Sterne, Manastein-Slots, Quellen) stehen in `data/catalog.json`.
@@ -47,9 +47,18 @@ npm run catalog            # ~90 Charaktere, ein paar Minuten
 npm run catalog -- --deep  # ~330 Charaktere, gründlicher
 ```
 
-Hinweise: Göttersteine sind im Potenzial nicht eingerechnet (Wert je Stein unbekannt). Das Maximum mit
-voll geöffneten Daevanion-Brettern liegt deutlich über dem aktuell höchsten Gearscore (~3550), weil
-bisher niemand die Bretter Ariel/Azphel annähernd komplett hat – deshalb wird „nur Ausrüstung“ separat angezeigt.
+**Daevanion-Limits** (`data/limits.json`): Die Bretter lassen sich nicht komplett füllen, weil es nicht genug
+Daevanion-Punkte gibt. Gerechnet wird mit 1 Punkt = 1 Knoten:
+
+- `totalPoints`: Gesamtbudget = höchste Zahl geöffneter Knoten unter den Top-80 in Global (aktuell 376).
+  `npm run catalog` hebt den Wert an, wenn jemand mehr hat.
+- `boardCaps`: Limit je Brett, z. B. `"Ariel": 60`.
+
+Die restlichen Punkte (Budget − schon geöffnet) werden auf die Bretter mit dem meisten GS je Knoten verteilt.
+Als Wert je Knoten zählt der Durchschnitt der noch geschlossenen Knoten eines Bretts, weil die Knoten als Pfad
+zusammenhängen und man sich die goldenen nicht einzeln herauspicken kann. Das Ergebnis ist deshalb ein „ca.“-Wert.
+
+Göttersteine sind im Potenzial nicht eingerechnet (Wert je Stein unbekannt).
 
 Kommandozeile: `node cli.js <link>` zeigt am Ende die 10 größten Hebel.
 
