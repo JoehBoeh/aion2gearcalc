@@ -1,0 +1,2076 @@
+{
+ "updatedAt": "2026-10-27T10:30:00Z",
+ "characterCount": 88,
+ "source": "88 Global-Charaktere (8 Klassen, Rangliste Seite 1/3/15/60/200)",
+ "items": {
+  "110130051": {
+   "id": 110130051,
+   "name": "Enraged Kromede Claymore",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Greatsword(Extend)",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Gladiator"
+   ],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 1
+  },
+  "110130104": {
+   "id": 110130104,
+   "name": "Splendent Wise Dragon Lord Greatsword",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Greatsword",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Gladiator"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110130105": {
+   "id": 110130105,
+   "name": "Splendent Ebony Dragon Lord Greatsword",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Greatsword",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Gladiator"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110230051": {
+   "id": 110230051,
+   "name": "Enraged Kromede Sword",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Longsword(Extend)",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Templar"
+   ],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 1
+  },
+  "110230101": {
+   "id": 110230101,
+   "name": "Splendent Dark Dragon Lord Longsword",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Longsword",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [
+    "Templar"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110230104": {
+   "id": 110230104,
+   "name": "Splendent Wise Dragon Lord Longsword",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Longsword",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Templar"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110230105": {
+   "id": 110230105,
+   "name": "Splendent Ebony Dragon Lord Longsword",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Longsword",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Templar"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110330051": {
+   "id": 110330051,
+   "name": "Enraged Kromede Silver Dagger",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Dagger(Extend)",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Assassin"
+   ],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 1
+  },
+  "110330103": {
+   "id": 110330103,
+   "name": "Ebony Dragon Lord Dagger",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Dagger",
+   "level": 94,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Assassin"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110330104": {
+   "id": 110330104,
+   "name": "Splendent Wise Dragon Lord Dagger",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Dagger",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Assassin"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110330105": {
+   "id": 110330105,
+   "name": "Splendent Ebony Dragon Lord Dagger",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Dagger",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Assassin"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110430051": {
+   "id": 110430051,
+   "name": "Enraged Kromede Longbow",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Bow(Extend)",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Ranger"
+   ],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 1
+  },
+  "110430104": {
+   "id": 110430104,
+   "name": "Splendent Wise Dragon Lord Bow",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Bow",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Ranger"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110430105": {
+   "id": 110430105,
+   "name": "Splendent Ebony Dragon Lord Bow",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Bow",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Ranger"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110530051": {
+   "id": 110530051,
+   "name": "Enraged Kromede Spellbook",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Spellbook(Extend)",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Sorcerer"
+   ],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 1
+  },
+  "110530101": {
+   "id": 110530101,
+   "name": "Splendent Dark Dragon Lord Spellbook",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Spellbook",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [
+    "Sorcerer"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110530104": {
+   "id": 110530104,
+   "name": "Splendent Wise Dragon Lord Spellbook",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Spellbook",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Sorcerer"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110530105": {
+   "id": 110530105,
+   "name": "Splendent Ebony Dragon Lord Spellbook",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Spellbook",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Sorcerer"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110630050": {
+   "id": 110630050,
+   "name": "Aulamus Orb",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Orb",
+   "level": 70,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [
+    "Spiritmaster"
+   ],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 1
+  },
+  "110630051": {
+   "id": 110630051,
+   "name": "Enraged Kromede Jewel",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Orb(Extend)",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Spiritmaster"
+   ],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 1
+  },
+  "110630101": {
+   "id": 110630101,
+   "name": "Splendent Dark Dragon Lord Orb",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Orb",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [
+    "Spiritmaster"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110630104": {
+   "id": 110630104,
+   "name": "Splendent Wise Dragon Lord Orb",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Orb",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Spiritmaster"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110630105": {
+   "id": 110630105,
+   "name": "Splendent Ebony Dragon Lord Orb",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Orb",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Spiritmaster"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110730051": {
+   "id": 110730051,
+   "name": "Enraged Kromede Warhammer",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Mace(Extend)",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Cleric"
+   ],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 1
+  },
+  "110730104": {
+   "id": 110730104,
+   "name": "Splendent Wise Dragon Lord Mace",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Mace",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Cleric"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110730105": {
+   "id": 110730105,
+   "name": "Splendent Ebony Dragon Lord Mace",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Mace",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Cleric"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110830051": {
+   "id": 110830051,
+   "name": "Enraged Kromede Rod",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Staff(Extend)",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Chanter"
+   ],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 1
+  },
+  "110830104": {
+   "id": 110830104,
+   "name": "Splendent Wise Dragon Lord Staff",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Staff",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Chanter"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "110830105": {
+   "id": 110830105,
+   "name": "Splendent Ebony Dragon Lord Staff",
+   "grade": "Unique",
+   "slot": "MainHand",
+   "category": "Staff",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [
+    "Chanter"
+   ],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "115030038": {
+   "id": 115030038,
+   "name": "Bakarma Guard",
+   "grade": "Unique",
+   "slot": "SubHand",
+   "category": "Guard",
+   "level": 54,
+   "maxEnchant": 15,
+   "maxExceed": 1,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 1
+  },
+  "115030052": {
+   "id": 115030052,
+   "name": "Vakron Guard",
+   "grade": "Unique",
+   "slot": "SubHand",
+   "category": "Guard",
+   "level": 70,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 1
+  },
+  "115030053": {
+   "id": 115030053,
+   "name": "Nuakum Guard",
+   "grade": "Unique",
+   "slot": "SubHand",
+   "category": "Guard",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 8
+  },
+  "115030095": {
+   "id": 115030095,
+   "name": "Splendent White Dragon Lord Guard",
+   "grade": "Unique",
+   "slot": "SubHand",
+   "category": "Guard",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 3
+  },
+  "115030099": {
+   "id": 115030099,
+   "name": "Splendent Dark Dragon Lord Guard",
+   "grade": "Unique",
+   "slot": "SubHand",
+   "category": "Guard",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 3
+  },
+  "115030102": {
+   "id": 115030102,
+   "name": "Splendent Wise Dragon Lord Guard",
+   "grade": "Unique",
+   "slot": "SubHand",
+   "category": "Guard",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "115030103": {
+   "id": 115030103,
+   "name": "Splendent Ebony Dragon Lord Guard",
+   "grade": "Unique",
+   "slot": "SubHand",
+   "category": "Guard",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "210130052": {
+   "id": 210130052,
+   "name": "Vakron Breastplate",
+   "grade": "Unique",
+   "slot": "Torso",
+   "category": "Top",
+   "level": 70,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 3
+  },
+  "210130053": {
+   "id": 210130053,
+   "name": "Nuakum Breastplate",
+   "grade": "Unique",
+   "slot": "Torso",
+   "category": "Top",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 8
+  },
+  "210130111": {
+   "id": 210130111,
+   "name": "Splendent White Dragon Lord Breastplate",
+   "grade": "Unique",
+   "slot": "Torso",
+   "category": "Top",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 2
+  },
+  "210130118": {
+   "id": 210130118,
+   "name": "Splendent Wise Dragon Lord Breastplate",
+   "grade": "Unique",
+   "slot": "Torso",
+   "category": "Top",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "210130119": {
+   "id": 210130119,
+   "name": "Splendent Ebony Dragon Lord Breastplate",
+   "grade": "Unique",
+   "slot": "Torso",
+   "category": "Top",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "210230052": {
+   "id": 210230052,
+   "name": "Vakron Greaves",
+   "grade": "Unique",
+   "slot": "Pants",
+   "category": "Legs",
+   "level": 70,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 1
+  },
+  "210230053": {
+   "id": 210230053,
+   "name": "Nuakum Greaves",
+   "grade": "Unique",
+   "slot": "Pants",
+   "category": "Legs",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 8
+  },
+  "210230110": {
+   "id": 210230110,
+   "name": "Splendent White Dragon Lord Greaves",
+   "grade": "Unique",
+   "slot": "Pants",
+   "category": "Legs",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "210230114": {
+   "id": 210230114,
+   "name": "Splendent Dark Dragon Lord Greaves",
+   "grade": "Unique",
+   "slot": "Pants",
+   "category": "Legs",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "210230117": {
+   "id": 210230117,
+   "name": "Splendent Wise Dragon Lord Greaves",
+   "grade": "Unique",
+   "slot": "Pants",
+   "category": "Legs",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "210230118": {
+   "id": 210230118,
+   "name": "Splendent Ebony Dragon Lord Greaves",
+   "grade": "Unique",
+   "slot": "Pants",
+   "category": "Legs",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "210330052": {
+   "id": 210330052,
+   "name": "Vakron Helm",
+   "grade": "Unique",
+   "slot": "Helmet",
+   "category": "Helm",
+   "level": 70,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 5
+  },
+  "210330053": {
+   "id": 210330053,
+   "name": "Nuakum Helm",
+   "grade": "Unique",
+   "slot": "Helmet",
+   "category": "Helm",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 8
+  },
+  "210330110": {
+   "id": 210330110,
+   "name": "Splendent White Dragon Lord Helm",
+   "grade": "Unique",
+   "slot": "Helmet",
+   "category": "Helm",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 3
+  },
+  "210330114": {
+   "id": 210330114,
+   "name": "Splendent Dark Dragon Lord Helm",
+   "grade": "Unique",
+   "slot": "Helmet",
+   "category": "Helm",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "210330117": {
+   "id": 210330117,
+   "name": "Splendent Wise Dragon Lord Helm",
+   "grade": "Unique",
+   "slot": "Helmet",
+   "category": "Helm",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "210330118": {
+   "id": 210330118,
+   "name": "Splendent Ebony Dragon Lord Helm",
+   "grade": "Unique",
+   "slot": "Helmet",
+   "category": "Helm",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "210430052": {
+   "id": 210430052,
+   "name": "Vakron Pauldrons",
+   "grade": "Unique",
+   "slot": "Shoulder",
+   "category": "Pauldrons",
+   "level": 70,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 5
+  },
+  "210430053": {
+   "id": 210430053,
+   "name": "Nuakum Pauldrons",
+   "grade": "Unique",
+   "slot": "Shoulder",
+   "category": "Pauldrons",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 8
+  },
+  "210430110": {
+   "id": 210430110,
+   "name": "Splendent White Dragon Lord Pauldrons",
+   "grade": "Unique",
+   "slot": "Shoulder",
+   "category": "Pauldrons",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "210430114": {
+   "id": 210430114,
+   "name": "Splendent Dark Dragon Lord Pauldrons",
+   "grade": "Unique",
+   "slot": "Shoulder",
+   "category": "Pauldrons",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 2
+  },
+  "210430117": {
+   "id": 210430117,
+   "name": "Splendent Wise Dragon Lord Pauldrons",
+   "grade": "Unique",
+   "slot": "Shoulder",
+   "category": "Pauldrons",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "210430118": {
+   "id": 210430118,
+   "name": "Splendent Ebony Dragon Lord Pauldrons",
+   "grade": "Unique",
+   "slot": "Shoulder",
+   "category": "Pauldrons",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "210530052": {
+   "id": 210530052,
+   "name": "Vakron Gloves",
+   "grade": "Unique",
+   "slot": "Gloves",
+   "category": "Gloves",
+   "level": 70,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 3
+  },
+  "210530053": {
+   "id": 210530053,
+   "name": "Nuakum Gloves",
+   "grade": "Unique",
+   "slot": "Gloves",
+   "category": "Gloves",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 8
+  },
+  "210530114": {
+   "id": 210530114,
+   "name": "Splendent Dark Dragon Lord Gloves",
+   "grade": "Unique",
+   "slot": "Gloves",
+   "category": "Gloves",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "210530117": {
+   "id": 210530117,
+   "name": "Splendent Wise Dragon Lord Gloves",
+   "grade": "Unique",
+   "slot": "Gloves",
+   "category": "Gloves",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "210530118": {
+   "id": 210530118,
+   "name": "Splendent Ebony Dragon Lord Gloves",
+   "grade": "Unique",
+   "slot": "Gloves",
+   "category": "Gloves",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "210630052": {
+   "id": 210630052,
+   "name": "Vakron Boots",
+   "grade": "Unique",
+   "slot": "Boots",
+   "category": "Shoes",
+   "level": 70,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 2
+  },
+  "210630053": {
+   "id": 210630053,
+   "name": "Nuakum Boots",
+   "grade": "Unique",
+   "slot": "Boots",
+   "category": "Shoes",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 8
+  },
+  "210630110": {
+   "id": 210630110,
+   "name": "Splendent White Dragon Lord Boots",
+   "grade": "Unique",
+   "slot": "Boots",
+   "category": "Shoes",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "210630114": {
+   "id": 210630114,
+   "name": "Splendent Dark Dragon Lord Boots",
+   "grade": "Unique",
+   "slot": "Boots",
+   "category": "Shoes",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "210630117": {
+   "id": 210630117,
+   "name": "Splendent Wise Dragon Lord Boots",
+   "grade": "Unique",
+   "slot": "Boots",
+   "category": "Shoes",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "210630118": {
+   "id": 210630118,
+   "name": "Splendent Ebony Dragon Lord Boots",
+   "grade": "Unique",
+   "slot": "Boots",
+   "category": "Shoes",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "210730052": {
+   "id": 210730052,
+   "name": "Vakron Cloak",
+   "grade": "Unique",
+   "slot": "Cape",
+   "category": "Cloak",
+   "level": 70,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 1
+  },
+  "210730053": {
+   "id": 210730053,
+   "name": "Nuakum Cloak",
+   "grade": "Unique",
+   "slot": "Cape",
+   "category": "Cloak",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 8
+  },
+  "210730110": {
+   "id": 210730110,
+   "name": "Splendent White Dragon Lord Cloak",
+   "grade": "Unique",
+   "slot": "Cape",
+   "category": "Cloak",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "210730117": {
+   "id": 210730117,
+   "name": "Splendent Wise Dragon Lord Cloak",
+   "grade": "Unique",
+   "slot": "Cape",
+   "category": "Cloak",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "210730118": {
+   "id": 210730118,
+   "name": "Splendent Ebony Dragon Lord Cloak",
+   "grade": "Unique",
+   "slot": "Cape",
+   "category": "Cloak",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "215230001": {
+   "id": 215230001,
+   "name": "Noble Belt",
+   "grade": "Unique",
+   "slot": "Belt",
+   "category": "Belt",
+   "level": 65,
+   "maxEnchant": 10,
+   "maxExceed": 0,
+   "msSlots": 0,
+   "classNames": [],
+   "sources": [
+    "Substance Morph"
+   ],
+   "seenByCount": 8
+  },
+  "310130050": {
+   "id": 310130050,
+   "name": "Aulamus Necklace",
+   "grade": "Unique",
+   "slot": "Necklace",
+   "category": "Necklace",
+   "level": 70,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 2
+  },
+  "310130051": {
+   "id": 310130051,
+   "name": "Enraged Kromede Necklace",
+   "grade": "Unique",
+   "slot": "Necklace",
+   "category": "Necklace",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 8
+  },
+  "310130112": {
+   "id": 310130112,
+   "name": "Splendent White Dragon Lord Necklace",
+   "grade": "Unique",
+   "slot": "Necklace",
+   "category": "Necklace",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 2
+  },
+  "310130115": {
+   "id": 310130115,
+   "name": "Splendent Star Dragon Lord Necklace",
+   "grade": "Unique",
+   "slot": "Necklace",
+   "category": "Necklace",
+   "level": 70,
+   "maxEnchant": 15,
+   "maxExceed": 1,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "310130116": {
+   "id": 310130116,
+   "name": "Splendent Dark Dragon Lord Necklace",
+   "grade": "Unique",
+   "slot": "Necklace",
+   "category": "Necklace",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 2
+  },
+  "310130119": {
+   "id": 310130119,
+   "name": "Splendent Wise Dragon Lord Necklace",
+   "grade": "Unique",
+   "slot": "Necklace",
+   "category": "Necklace",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "310130120": {
+   "id": 310130120,
+   "name": "Splendent Ebony Dragon Lord Necklace",
+   "grade": "Unique",
+   "slot": "Necklace",
+   "category": "Necklace",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "310230052": {
+   "id": 310230052,
+   "name": "Aulamus Earrings",
+   "grade": "Unique",
+   "slot": "Earring2",
+   "category": "Earrings",
+   "level": 70,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 6
+  },
+  "310230053": {
+   "id": 310230053,
+   "name": "Enraged Kromede Earrings",
+   "grade": "Unique",
+   "slot": "Earring1",
+   "category": "Earrings",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 8
+  },
+  "310230114": {
+   "id": 310230114,
+   "name": "Splendent White Dragon Lord Earrings",
+   "grade": "Unique",
+   "slot": "Earring2",
+   "category": "Earrings",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 3
+  },
+  "310230118": {
+   "id": 310230118,
+   "name": "Splendent Dark Dragon Lord Earrings",
+   "grade": "Unique",
+   "slot": "Earring2",
+   "category": "Earrings",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 3
+  },
+  "310230120": {
+   "id": 310230120,
+   "name": "Ebony Dragon Lord Earrings",
+   "grade": "Unique",
+   "slot": "Earring1",
+   "category": "Earrings",
+   "level": 94,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "310230121": {
+   "id": 310230121,
+   "name": "Splendent Wise Dragon Lord Earrings",
+   "grade": "Unique",
+   "slot": "Earring2",
+   "category": "Earrings",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "310230122": {
+   "id": 310230122,
+   "name": "Splendent Ebony Dragon Lord Earrings",
+   "grade": "Unique",
+   "slot": "Earring1",
+   "category": "Earrings",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "310330021": {
+   "id": 310330021,
+   "name": "Splendent Star Dragon Lord Ring",
+   "grade": "Unique",
+   "slot": "Ring2",
+   "category": "Ring",
+   "level": 70,
+   "maxEnchant": 15,
+   "maxExceed": 1,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "310330052": {
+   "id": 310330052,
+   "name": "Aulamus Ring",
+   "grade": "Unique",
+   "slot": "Ring2",
+   "category": "Ring",
+   "level": 70,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 2
+  },
+  "310330053": {
+   "id": 310330053,
+   "name": "Enraged Kromede Ring",
+   "grade": "Unique",
+   "slot": "Ring1",
+   "category": "Ring",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Expedition",
+    "Sanctuary"
+   ],
+   "seenByCount": 8
+  },
+  "310330104": {
+   "id": 310330104,
+   "name": "Gartua Ring",
+   "grade": "Unique",
+   "slot": "Ring1",
+   "category": "Ring",
+   "level": 70,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Reward Chest"
+   ],
+   "seenByCount": 1
+  },
+  "310330114": {
+   "id": 310330114,
+   "name": "Splendent White Dragon Lord Ring",
+   "grade": "Unique",
+   "slot": "Ring1",
+   "category": "Ring",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 4
+  },
+  "310330117": {
+   "id": 310330117,
+   "name": "Splendent Star Dragon Lord Ring",
+   "grade": "Unique",
+   "slot": "Ring2",
+   "category": "Ring",
+   "level": 70,
+   "maxEnchant": 15,
+   "maxExceed": 1,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "310330118": {
+   "id": 310330118,
+   "name": "Splendent Dark Dragon Lord Ring",
+   "grade": "Unique",
+   "slot": "Ring2",
+   "category": "Ring",
+   "level": 86,
+   "maxEnchant": 15,
+   "maxExceed": 3,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 3
+  },
+  "310330119": {
+   "id": 310330119,
+   "name": "Wise Dragon Lord Ring",
+   "grade": "Unique",
+   "slot": "Ring1",
+   "category": "Ring",
+   "level": 94,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 1
+  },
+  "310330121": {
+   "id": 310330121,
+   "name": "Splendent Wise Dragon Lord Ring",
+   "grade": "Unique",
+   "slot": "Ring1",
+   "category": "Ring",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "310330122": {
+   "id": 310330122,
+   "name": "Splendent Ebony Dragon Lord Ring",
+   "grade": "Unique",
+   "slot": "Ring1",
+   "category": "Ring",
+   "level": 102,
+   "maxEnchant": 15,
+   "maxExceed": 5,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Crafting"
+   ],
+   "seenByCount": 8
+  },
+  "310430046": {
+   "id": 310430046,
+   "name": "Ascension Bracelet",
+   "grade": "Unique",
+   "slot": "Bracelet1",
+   "category": "Bracelet",
+   "level": 51,
+   "maxEnchant": 15,
+   "maxExceed": 0,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Ascension"
+   ],
+   "seenByCount": 8
+  },
+  "310430047": {
+   "id": 310430047,
+   "name": "Ascension Bracelet",
+   "grade": "Unique",
+   "slot": "Bracelet1",
+   "category": "Bracelet",
+   "level": 51,
+   "maxEnchant": 15,
+   "maxExceed": 0,
+   "msSlots": 4,
+   "classNames": [],
+   "sources": [
+    "Ascension"
+   ],
+   "seenByCount": 8
+  },
+  "310440017": {
+   "id": 310440017,
+   "name": "Pilgrim Bracelet",
+   "grade": "Legend",
+   "slot": "Bracelet2",
+   "category": "Bracelet",
+   "level": 43,
+   "maxEnchant": 10,
+   "maxExceed": 0,
+   "msSlots": 3,
+   "classNames": [],
+   "sources": [
+    "Crafting",
+    "Quest"
+   ],
+   "seenByCount": 8
+  },
+  "310440018": {
+   "id": 310440018,
+   "name": "Liberator Bracelet",
+   "grade": "Legend",
+   "slot": "Bracelet2",
+   "category": "Bracelet",
+   "level": 43,
+   "maxEnchant": 10,
+   "maxExceed": 0,
+   "msSlots": 3,
+   "classNames": [],
+   "sources": [
+    "Crafting",
+    "Quest"
+   ],
+   "seenByCount": 8
+  },
+  "310900001": {
+   "id": 310900001,
+   "name": "Clash Rune",
+   "grade": "Special",
+   "slot": "Rune1",
+   "category": "Rune",
+   "level": 40,
+   "maxEnchant": 10,
+   "maxExceed": 0,
+   "msSlots": 0,
+   "classNames": [],
+   "sources": [
+    "Reward Chest",
+    "Quest"
+   ],
+   "seenByCount": 8
+  },
+  "311030001": {
+   "id": 311030001,
+   "name": "Revelation Amulet",
+   "grade": "Unique",
+   "slot": "Amulet",
+   "category": "Amulet",
+   "level": 65,
+   "maxEnchant": 10,
+   "maxExceed": 0,
+   "msSlots": 0,
+   "classNames": [],
+   "sources": [
+    "Substance Morph"
+   ],
+   "seenByCount": 8
+  },
+  "311030002": {
+   "id": 311030002,
+   "name": "Fierce Battle Amulet",
+   "grade": "Unique",
+   "slot": "Amulet",
+   "category": "Amulet",
+   "level": 65,
+   "maxEnchant": 10,
+   "maxExceed": 0,
+   "msSlots": 0,
+   "classNames": [],
+   "sources": [
+    "Substance Morph"
+   ],
+   "seenByCount": 4
+  },
+  "810130001": {
+   "id": 810130001,
+   "name": "Chalice of Vigor",
+   "grade": "Unique",
+   "slot": "Arcana1",
+   "category": "Chalice",
+   "level": 80,
+   "maxEnchant": 5,
+   "maxExceed": 0,
+   "msSlots": 0,
+   "classNames": [],
+   "sources": [],
+   "seenByCount": 8
+  },
+  "810130002": {
+   "id": 810130002,
+   "name": "Chalice of Magic",
+   "grade": "Unique",
+   "slot": "Arcana1",
+   "category": "Chalice",
+   "level": 80,
+   "maxEnchant": 5,
+   "maxExceed": 0,
+   "msSlots": 0,
+   "classNames": [],
+   "sources": [],
+   "seenByCount": 5
+  },
+  "810230001": {
+   "id": 810230001,
+   "name": "Parchment of Vigor",
+   "grade": "Unique",
+   "slot": "Arcana2",
+   "category": "Parchment",
+   "level": 80,
+   "maxEnchant": 5,
+   "maxExceed": 0,
+   "msSlots": 0,
+   "classNames": [],
+   "sources": [],
+   "seenByCount": 8
+  },
+  "810230002": {
+   "id": 810230002,
+   "name": "Parchment of Magic",
+   "grade": "Unique",
+   "slot": "Arcana2",
+   "category": "Parchment",
+   "level": 80,
+   "maxEnchant": 5,
+   "maxExceed": 0,
+   "msSlots": 0,
+   "classNames": [],
+   "sources": [],
+   "seenByCount": 8
+  },
+  "810330001": {
+   "id": 810330001,
+   "name": "Compass of Vigor",
+   "grade": "Unique",
+   "slot": "Arcana3",
+   "category": "Compass",
+   "level": 80,
+   "maxEnchant": 5,
+   "maxExceed": 0,
+   "msSlots": 0,
+   "classNames": [],
+   "sources": [],
+   "seenByCount": 8
+  },
+  "810330002": {
+   "id": 810330002,
+   "name": "Compass of Magic",
+   "grade": "Unique",
+   "slot": "Arcana3",
+   "category": "Compass",
+   "level": 80,
+   "maxEnchant": 5,
+   "maxExceed": 0,
+   "msSlots": 0,
+   "classNames": [],
+   "sources": [],
+   "seenByCount": 8
+  },
+  "810340002": {
+   "id": 810340002,
+   "name": "Compass of Magic",
+   "grade": "Legend",
+   "slot": "Arcana3",
+   "category": "Compass",
+   "level": 60,
+   "maxEnchant": 4,
+   "maxExceed": 0,
+   "msSlots": 0,
+   "classNames": [],
+   "sources": [],
+   "seenByCount": 1
+  },
+  "810430001": {
+   "id": 810430001,
+   "name": "Bell of Vigor",
+   "grade": "Unique",
+   "slot": "Arcana4",
+   "category": "Bell",
+   "level": 80,
+   "maxEnchant": 5,
+   "maxExceed": 0,
+   "msSlots": 0,
+   "classNames": [],
+   "sources": [],
+   "seenByCount": 5
+  },
+  "810430002": {
+   "id": 810430002,
+   "name": "Bell of Magic",
+   "grade": "Unique",
+   "slot": "Arcana4",
+   "category": "Bell",
+   "level": 80,
+   "maxEnchant": 5,
+   "maxExceed": 0,
+   "msSlots": 0,
+   "classNames": [],
+   "sources": [],
+   "seenByCount": 8
+  },
+  "810530001": {
+   "id": 810530001,
+   "name": "Mirror of Vigor",
+   "grade": "Unique",
+   "slot": "Arcana5",
+   "category": "Mirror",
+   "level": 80,
+   "maxEnchant": 5,
+   "maxExceed": 0,
+   "msSlots": 0,
+   "classNames": [],
+   "sources": [],
+   "seenByCount": 8
+  },
+  "810530002": {
+   "id": 810530002,
+   "name": "Mirror of Magic",
+   "grade": "Unique",
+   "slot": "Arcana5",
+   "category": "Mirror",
+   "level": 80,
+   "maxEnchant": 5,
+   "maxExceed": 0,
+   "msSlots": 0,
+   "classNames": [],
+   "sources": [],
+   "seenByCount": 8
+  },
+  "810540002": {
+   "id": 810540002,
+   "name": "Mirror of Magic",
+   "grade": "Legend",
+   "slot": "Arcana5",
+   "category": "Mirror",
+   "level": 60,
+   "maxEnchant": 4,
+   "maxExceed": 0,
+   "msSlots": 0,
+   "classNames": [],
+   "sources": [],
+   "seenByCount": 1
+  }
+ },
+ "boards": {
+  "default": [
+   {
+    "name": "Nezekan",
+    "total": 88,
+    "counts": {
+     "Common": 62,
+     "Rare": 10,
+     "Legend": 12,
+     "Unique": 4
+    }
+   },
+   {
+    "name": "Zikel",
+    "total": 88,
+    "counts": {
+     "Common": 62,
+     "Rare": 10,
+     "Legend": 12,
+     "Unique": 4
+    }
+   },
+   {
+    "name": "Vaizel",
+    "total": 88,
+    "counts": {
+     "Common": 62,
+     "Rare": 10,
+     "Legend": 12,
+     "Unique": 4
+    }
+   },
+   {
+    "name": "Triniel",
+    "total": 116,
+    "counts": {
+     "Common": 88,
+     "Rare": 10,
+     "Legend": 12,
+     "Unique": 6
+    }
+   },
+   {
+    "name": "Ariel",
+    "total": 152,
+    "counts": {
+     "Common": 104,
+     "Rare": 24,
+     "Legend": 16,
+     "Unique": 8
+    }
+   },
+   {
+    "name": "Azphel",
+    "total": 152,
+    "counts": {
+     "Common": 104,
+     "Rare": 24,
+     "Legend": 16,
+     "Unique": 8
+    }
+   }
+  ]
+ }
+}

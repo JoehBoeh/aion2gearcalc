@@ -1,0 +1,15 @@
+{
+  "name": "aion2-gearscore",
+  "version": "1.0.0",
+  "description": "Schlüsselt den AION-2-Gearscore eines Charakters (shugo.gg-Link) nach Herkunft auf",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/calc.test.js && node test/upgrade.test.js",
+    "catalog": "node scripts/update-catalog.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

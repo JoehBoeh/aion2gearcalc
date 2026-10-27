@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AION 2 Gearscore-Analyse</title>
+<style>
+  :root {
+    --bg: #0f1115; --panel: #171a21; --panel2: #1e222b; --line: #2a2f3a;
+    --text: #e6e8ee; --muted: #8b93a3; --accent: #e8b65a;
+    --g-Common: #d4d7de; --g-Rare: #46c96a; --g-Legend: #4ea2ff; --g-Unique: #f2b631; --g-Epic: #ff7a1a; --g-Special: #c38bff;
+    --c-base: #5b6b8c; --c-enchant: #4ea2ff; --c-stars: #e8b65a; --c-mana: #46c96a; --c-god: #c38bff; --c-dv: #ff7a6b;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 1180px; margin: 0 auto; padding: 28px 16px 60px; }
+  h1 { font-size: 22px; margin: 0 0 4px; letter-spacing: .2px; }
+  h1 span { color: var(--accent); }
+  .sub { color: var(--muted); margin: 0 0 20px; }
+  form { display: flex; gap: 8px; align-items: stretch; }
+  .inputs { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+  .cmp-heroes { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; }
+  .cmp-heroes .vs { color: var(--muted); font-weight: 700; text-align: center; }
+  .cmp-heroes .delta { font-size: 22px; font-weight: 700; display: block; }
+  .cmp-heroes .side { display: flex; gap: 12px; align-items: center; }
+  .cmp-heroes .side.right { flex-direction: row-reverse; text-align: right; }
+  .cmp-heroes img { width: 52px; height: 52px; border-radius: 10px; object-fit: cover; background: var(--panel2); }
+  .cmp-heroes .gsv { font-size: 26px; font-weight: 700; color: var(--accent); line-height: 1.1; }
+  .pos { color: #6fdc8c; } .neg { color: #ff8a7a; } .zero { color: var(--muted); }
+  .tagA { color: #7fb8ff; } .tagB { color: #ffb56b; }
+  .twin { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; height: 8px; margin-top: 4px; }
+  .twin span { display: block; height: 100%; border-radius: 3px; }
+  td.cmpitem { white-space: normal; min-width: 190px; text-align: left; }
+  td.cmpitem .formula { color: var(--muted); font-size: 12px; }
+  td.better { background: rgba(70, 201, 106, .07); }
+  table.only-diff tr.same { display: none; }
+  .chips { display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; }
+  .chip { font-size: 11px; padding: 1px 6px; border-radius: 10px; background: var(--panel2); white-space: nowrap; }
+  @media (max-width: 720px) { .cmp-heroes { grid-template-columns: 1fr; } .cmp-heroes .side.right { flex-direction: row; text-align: left; } }
+  input { flex: 1; min-width: 0; background: var(--panel); border: 1px solid var(--line); color: var(--text); border-radius: 8px; padding: 11px 13px; font-size: 14px; }
+  input:focus { outline: none; border-color: var(--accent); }
+  button { background: var(--accent); color: #1b1408; border: 0; border-radius: 8px; padding: 0 18px; font-weight: 600; cursor: pointer; }
+  button:disabled { opacity: .5; cursor: wait; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px; margin-top: 18px; }
+  .err { border-color: #7a2d2d; background: #241517; color: #ffb4b4; }
+  .warn { color: #ffd38a; font-size: 13px; margin: 4px 0 0; }
+  .hero { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .hero img { width: 64px; height: 64px; border-radius: 10px; object-fit: cover; background: var(--panel2); }
+  .hero .name { font-size: 20px; font-weight: 700; }
+  .hero .meta { color: var(--muted); }
+  .gs { margin-left: auto; text-align: right; }
+  .gs b { font-size: 34px; color: var(--accent); display: block; line-height: 1; }
+  .gs small { color: var(--muted); }
+  .ok { color: #6fdc8c; } .bad { color: #ff9b7a; }
+  .bar { display: flex; height: 14px; border-radius: 7px; overflow: hidden; margin: 18px 0 10px; background: var(--panel2); }
+  .bar div { height: 100%; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+  .legend b { font-variant-numeric: tabular-nums; }
+  h2 { font-size: 15px; margin: 0 0 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .6px; }
+  .tablewrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  th, td { padding: 8px 8px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+  th { color: var(--muted); font-weight: 500; font-size: 12px; position: sticky; top: 0; background: var(--panel); }
+  th:nth-child(-n+2), td:nth-child(-n+2) { text-align: left; }
+  td.item { white-space: normal; min-width: 220px; }
+  td.item .formula { color: var(--muted); font-size: 12px; }
+  tr.total td { font-weight: 700; border-bottom: 0; border-top: 2px solid var(--line); }
+  td.sum { font-weight: 700; }
+  .slot { color: var(--muted); }
+  .dim { color: #4b5263; }
+  .dots { display: inline-flex; gap: 3px; vertical-align: middle; margin-right: 6px; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .stars { color: var(--c-stars); letter-spacing: -1px; font-size: 11px; }
+  .g-Common { color: var(--g-Common); } .g-Rare { color: var(--g-Rare); } .g-Legend { color: var(--g-Legend); }
+  .g-Unique { color: var(--g-Unique); } .g-Epic { color: var(--g-Epic); } .g-Special { color: var(--g-Special); }
+  .note { color: var(--muted); font-size: 12px; margin-top: 10px; }
+  .rules { color: var(--muted); font-size: 12px; line-height: 1.6; }
+  .rules b { color: var(--text); font-weight: 600; }
+  .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--line); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; vertical-align: -2px; margin-right: 8px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (max-width: 640px) { .gs { margin-left: 0; text-align: left; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>AION 2 <span>Gearscore-Analyse</span></h1>
+  <p class="sub">shugo.gg-Charakterlink einfügen – zeigt, woher jeder Punkt Gearscore kommt.</p>
+  <form id="f">
+    <div class="inputs">
+      <input id="u" placeholder="https://shugo.gg/de/character/global/eu-siel/Charaktername" autocomplete="off" autofocus>
+      <input id="v" placeholder="Optional: zweiter Charakter zum Vergleichen" autocomplete="off">
+    </div>
+    <button id="go">Analysieren</button>
+  </form>
+  <div id="out"></div>
+  <div class="card rules">
+    <b>Rechenregeln:</b> Item = Basis + Verstärkung (+1 je Stufe) + Sterne (+5 je Stern) + Manasteine
+    (<span class="g-Common">Weiß 1</span> · <span class="g-Rare">Grün 2</span> · <span class="g-Legend">Blau 3</span> · <span class="g-Unique">Gold 4</span>)
+    + Götterstein (<span class="g-Rare">Grün 3</span>; blau/gold aus Differenz).
+    Daevanion: jeder geöffnete Knoten <span class="g-Common">Weiß 1</span> · <span class="g-Rare">Grün 2</span> · <span class="g-Legend">Blau 3</span> · <span class="g-Unique">Gold 4</span>.
+    Daten live von der offiziellen AION-2-API.
+  </div>
+</main>
+<script>
+const $ = (s) => document.querySelector(s);
+const GRADE_DE = { Common: 'Weiß', Rare: 'Grün', Legend: 'Blau', Unique: 'Gold', Epic: 'Orange', Special: 'Spezial' };
+const CAT = [
+  ['base', 'Basis', '--c-base'], ['enchant', 'Verstärkung', '--c-enchant'], ['stars', 'Sterne', '--c-stars'],
+  ['manastones', 'Manasteine', '--c-mana'], ['god', 'Göttersteine', '--c-god'], ['daevanion', 'Daevanion', '--c-dv'],
+];
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const n = (v) => (v ? v : '<span class="dim">–</span>');
+
+async function fetchOne(link, fresh, label) {
+  const r = await fetch(`/api/breakdown?url=${encodeURIComponent(link)}${fresh ? '&fresh=1' : ''}`);
+  const d = await r.json();
+  if (!r.ok) throw new Error(`${label ? label + ': ' : ''}${d.error || 'Fehler'}`);
+  return d;
+}
+
+async function run(link, vs = '', fresh = false) {
+  const btn = $('#go');
+  btn.disabled = true;
+  $('#out').innerHTML = `<div class="card"><span class="spinner"></span>Lade ${vs ? 'beide Charaktere' : 'Charakter'}, Ausrüstung und Daevanion-Bretter …</div>`;
+  try {
+    if (vs) {
+      const [a, b] = await Promise.all([fetchOne(link, fresh, 'Charakter 1'), fetchOne(vs, fresh, 'Charakter 2')]);
+      renderCompare(a, b, link, vs);
+      history.replaceState(null, '', `?url=${encodeURIComponent(link)}&vs=${encodeURIComponent(vs)}`);
+    } else {
+      render(await fetchOne(link, fresh), link);
+      history.replaceState(null, '', `?url=${encodeURIComponent(link)}`);
+    }
+  } catch (e) {
+    $('#out').innerHTML = `<div class="card err">${esc(e.message)}</div>`;
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+// ---------- Vergleich ----------
+const catVals = (d) => {
+  const t = d.totals;
+  const god = t.godstonesKnown + (t.godstonesFromDiff ?? 0);
+  return { ...t, god, total: d.official ?? CAT.reduce((a, [k]) => a + (k === 'god' ? god : t[k] || 0), 0) };
+};
+const delta = (x, y) => {
+  const v = (y ?? 0) - (x ?? 0);
+  return `<span class="${v > 0 ? 'pos' : v < 0 ? 'neg' : 'zero'}">${v > 0 ? '+' : ''}${v}</span>`;
+};
+const itemFormula = (i) => {
+  const f = [`${i.base ?? '?'}`];
+  if (i.enchantPts) f.push(`${i.enchantPts} V`);
+  if (i.starPts) f.push(`${i.starPts} ★`);
+  if (i.stones.length) f.push(`${i.manaPts} MS`);
+  i.godstones.forEach((g) => f.push(`${g.points ?? '?'} GS`));
+  return f.join(' + ');
+};
+const itemCell = (i, better) => {
+  if (!i) return `<td class="cmpitem dim">– leer –</td><td class="dim">–</td>`;
+  const dots = i.stones.map((s) => `<span class="dot" title="${esc(GRADE_DE[s.grade] || s.grade)}" style="background:var(--g-${s.grade})"></span>`).join('');
+  return `<td class="cmpitem${better ? ' better' : ''}"><span class="g-${i.grade}">${esc(i.name)}</span>${i.enchantLevel ? ` +${i.enchantLevel}` : ''}
+      ${i.stars ? `<span class="stars">${'★'.repeat(i.stars)}</span>` : ''}
+      <div class="formula"><span class="dots">${dots}</span>${itemFormula(i)}</div></td>
+    <td class="sum${better ? ' better' : ''}">${i.total}${i.godstones.some((g) => g.points == null) ? '+?' : ''}</td>`;
+};
+
+function renderCompare(a, b, linkA, linkB) {
+  const va = catVals(a), vb = catVals(b);
+  const ca = a.character, cb = b.character;
+  const hero = (c, v, side) => `<div class="side ${side}">
+      ${c.image ? `<img src="${esc(c.image)}" alt="">` : ''}
+      <div><div class="name ${side === 'left' ? 'tagA' : 'tagB'}" style="font-weight:700;font-size:17px">${esc(c.name)}</div>
+        <div class="meta" style="color:var(--muted);font-size:13px">${esc(c.className)} · Lv ${c.level} · ${esc(c.server)}</div>
+        <div class="gsv">${v.total}</div></div></div>`;
+
+  // Kategorien
+  const maxCat = Math.max(...CAT.map(([k]) => Math.max(va[k] || 0, vb[k] || 0)), 1);
+  const catRows = CAT.map(([k, label, col]) => `<tr>
+      <td class="slot"><i style="display:inline-block;width:10px;height:10px;border-radius:3px;background:var(${col});margin-right:6px"></i>${label}</td>
+      <td style="width:40%"><div class="twin" style="grid-template-columns:1fr">
+        <span style="width:${(100 * (va[k] || 0)) / maxCat}%;background:#7fb8ff"></span></div>
+        <div class="twin" style="grid-template-columns:1fr"><span style="width:${(100 * (vb[k] || 0)) / maxCat}%;background:#ffb56b"></span></div></td>
+      <td class="tagA">${va[k] || 0}</td><td class="tagB">${vb[k] || 0}</td><td class="sum">${delta(va[k], vb[k])}</td></tr>`).join('');
+
+  // Slots
+  const slots = [];
+  for (const i of [...a.items, ...b.items]) if (!slots.some((s) => s.slot === i.slot)) slots.push({ slot: i.slot, slotDe: i.slotDe });
+  const order = ['MainHand', 'SubHand', 'Helmet', 'Shoulder', 'Torso', 'Pants', 'Gloves', 'Boots', 'Cape', 'Belt', 'Necklace',
+    'Earring1', 'Earring2', 'Ring1', 'Ring2', 'Bracelet1', 'Bracelet2', 'Rune1', 'Rune2', 'Amulet', 'Arcana1', 'Arcana2', 'Arcana3', 'Arcana4', 'Arcana5'];
+  slots.sort((x, y) => order.indexOf(x.slot) - order.indexOf(y.slot));
+  const slotRows = slots.map(({ slot, slotDe }) => {
+    const ia = a.items.find((i) => i.slot === slot), ib = b.items.find((i) => i.slot === slot);
+    const ta = ia?.total ?? 0, tb = ib?.total ?? 0;
+    const parts = [['Basis', 'base'], ['Verst.', 'enchantPts'], ['Sterne', 'starPts'], ['Manast.', 'manaPts'], ['Götterst.', 'godKnown']]
+      .map(([l, k]) => [l, (ib?.[k] ?? 0) - (ia?.[k] ?? 0)]).filter(([, v]) => v)
+      .map(([l, v]) => `<span class="chip ${v > 0 ? 'pos' : 'neg'}">${l} ${v > 0 ? '+' : ''}${v}</span>`).join('');
+    return `<tr class="${ta === tb && ia?.name === ib?.name ? 'same' : ''}"><td class="slot">${esc(slotDe)}</td>${itemCell(ia, ta > tb)}${itemCell(ib, tb > ta)}
+      <td class="sum">${delta(ta, tb)}<div class="chips">${parts}</div></td></tr>`;
+  }).join('');
+
+  // Daevanion (Bretter je Klasse unterschiedlich -> nach Name/Position abgleichen)
+  const nB = Math.max(a.boards.length, b.boards.length);
+  const boardRows = Array.from({ length: nB }, (_, k) => {
+    const ba = a.boards[k], bb = b.boards.find((x) => x.name === ba?.name) ?? b.boards[k];
+    const cnt = (x) => x ? ['Common', 'Rare', 'Legend', 'Unique'].map((g) => `<span class="g-${g}">${x.counts[g]}</span>`).join(' / ') : '–';
+    return `<tr><td class="slot">${esc(ba?.name ?? bb?.name)}</td>
+      <td>${cnt(ba)}</td><td class="tagA sum">${ba?.points ?? 0}</td>
+      <td>${cnt(bb)}</td><td class="tagB sum">${bb?.points ?? 0}</td>
+      <td class="sum">${delta(ba?.points, bb?.points)}</td></tr>`;
+  }).join('');
+
+  const diff = vb.total - va.total;
+  const warn = [...a.warnings.map((w) => `${ca.name}: ${w}`), ...b.warnings.map((w) => `${cb.name}: ${w}`)];
+  $('#out').innerHTML = `
+  <div class="card">
+    <div class="cmp-heroes">
+      ${hero(ca, va, 'left')}
+      <div class="vs">VS<span class="delta ${diff > 0 ? 'pos' : diff < 0 ? 'neg' : 'zero'}">${diff > 0 ? '+' : ''}${diff}</span>
+        <small style="color:var(--muted);font-weight:400">${esc(cb.name)} ggü. ${esc(ca.name)}</small><br>
+        <a href="#" id="re" style="color:var(--muted);font-size:12px;font-weight:400">neu laden</a> ·
+        <a href="#" id="swap" style="color:var(--muted);font-size:12px;font-weight:400">tauschen</a></div>
+      ${hero(cb, vb, 'right')}
+    </div>
+    ${warn.map((w) => `<p class="warn">⚠ ${esc(w)}</p>`).join('')}
+  </div>
+  <div class="card"><h2>Nach Herkunft</h2><div class="tablewrap"><table>
+    <tr><th>Quelle</th><th></th><th class="tagA">${esc(ca.name)}</th><th class="tagB">${esc(cb.name)}</th><th>Δ</th></tr>
+    ${catRows}
+    <tr class="total"><td>Gesamt</td><td></td><td class="tagA">${va.total}</td><td class="tagB">${vb.total}</td><td>${delta(va.total, vb.total)}</td></tr>
+  </table></div></div>
+  <div class="card"><h2 style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap">Ausrüstung Slot für Slot
+    <label style="text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer"><input type="checkbox" id="onlyDiff" style="flex:none;padding:0;margin-right:6px;vertical-align:-2px">Nur Unterschiede</label></h2><div class="tablewrap"><table id="slotTable">
+    <tr><th>Slot</th><th class="tagA">${esc(ca.name)}</th><th>GS</th><th class="tagB" style="text-align:left">${esc(cb.name)}</th><th>GS</th><th>Δ</th></tr>
+    ${slotRows}
+  </table></div><p class="note">V = Verstärkung · ★ = Sterne · MS = Manasteine · GS = Götterstein. Δ = ${esc(cb.name)} minus ${esc(ca.name)}; grün hinterlegt = höherer Wert im Slot.</p></div>
+  <div class="card"><h2>Daevanion-Bretter</h2><div class="tablewrap"><table>
+    <tr><th>Brett</th><th class="tagA">Knoten W/G/B/G</th><th class="tagA">${esc(ca.name)}</th><th class="tagB">Knoten W/G/B/G</th><th class="tagB">${esc(cb.name)}</th><th>Δ</th></tr>
+    ${boardRows}
+    <tr class="total"><td>Gesamt</td><td></td><td class="tagA">${va.daevanion}</td><td></td><td class="tagB">${vb.daevanion}</td><td>${delta(va.daevanion, vb.daevanion)}</td></tr>
+  </table></div></div>`;
+  $('#re').onclick = (e) => { e.preventDefault(); run(linkA, linkB, true); };
+  $('#onlyDiff').onchange = (e) => $('#slotTable').classList.toggle('only-diff', e.target.checked);
+  $('#swap').onclick = (e) => { e.preventDefault(); $('#u').value = linkB; $('#v').value = linkA; renderCompare(b, a, linkB, linkA);
+    history.replaceState(null, '', `?url=${encodeURIComponent(linkB)}&vs=${encodeURIComponent(linkA)}`); };
+}
+
+function render(d, link) {
+  const t = d.totals;
+  const god = t.godstonesKnown + (t.godstonesFromDiff ?? 0);
+  const vals = { ...t, god };
+  const total = CAT.reduce((a, [k]) => a + (vals[k] || 0), 0);
+  const match = d.official === total;
+  const c = d.character;
+
+  const bar = CAT.map(([k, , col]) => `<div title="${k}" style="width:${(100 * (vals[k] || 0)) / total}%;background:var(${col})"></div>`).join('');
+  const legend = CAT.map(([k, label, col]) => `<span><i style="background:var(${col})"></i>${label} <b>${vals[k] || 0}</b></span>`).join('');
+
+  const rows = d.items.map((i) => {
+    const dots = i.stones.map((s) => `<span class="dot" title="${esc(GRADE_DE[s.grade] || s.grade)}: ${esc(s.name)} ${esc(s.value)}" style="background:var(--g-${s.grade})"></span>`).join('');
+    const godTxt = i.godstones.map((g) => `<span class="g-${g.grade}" title="${esc(g.name)}">${g.points ?? '?'}</span>`).join(' + ');
+    const f = [`${i.base ?? '?'} Basis`];
+    if (i.enchantPts) f.push(`${i.enchantPts} Verstärkung`);
+    if (i.starPts) f.push(`${i.starPts} Sterne`);
+    if (i.stones.length) f.push(`${i.manaPts} Manasteine`);
+    i.godstones.forEach((g) => f.push(`${g.points ?? '?'} Götterstein`));
+    return `<tr>
+      <td class="slot">${esc(i.slotDe)}</td>
+      <td class="item"><span class="g-${i.grade}">${esc(i.name)}</span>
+        ${i.enchantLevel ? ` +${i.enchantLevel}` : ''} ${i.stars ? `<span class="stars">${'★'.repeat(i.stars)}</span>` : ''}
+        <div class="formula">${f.join(' + ')}</div></td>
+      <td>${n(i.base)}</td><td>${n(i.enchantPts)}</td><td>${n(i.starPts)}</td>
+      <td><span class="dots">${dots}</span>${n(i.manaPts)}</td>
+      <td>${godTxt || n(0)}</td>
+      <td class="sum">${i.total}${i.godstones.some((g) => g.points == null) ? '+?' : ''}</td></tr>`;
+  }).join('');
+
+  const boardRows = d.boards.map((b) => `<tr>
+      <td class="slot">${esc(b.name)}</td><td>${b.openNodes}/${b.totalNodes} Knoten</td>
+      ${['Common', 'Rare', 'Legend', 'Unique'].map((g) => `<td class="g-${g}">${b.counts[g] ? `${b.counts[g]}× = ${b.counts[g] * { Common: 1, Rare: 2, Legend: 3, Unique: 4 }[g]}` : n(0)}</td>`).join('')}
+      <td class="sum">${b.points}</td></tr>`).join('');
+
+  const godNote = t.godstonesFromDiff != null
+    ? `<p class="note">Göttersteine mit unbekanntem Wert (${d.unknownGodstones.map((g) => `<span class="g-${g.grade}">${esc(g.name.replace('Theostone: ', ''))}</span>`).join(', ')}) zusammen: <b>${t.godstonesFromDiff}</b> – aus der Differenz zum offiziellen Gearscore ermittelt.</p>` : '';
+
+  $('#out').innerHTML = `
+  <div class="card">
+    <div class="hero">
+      ${c.image ? `<img src="${esc(c.image)}" alt="">` : ''}
+      <div><div class="name">${esc(c.name)}</div>
+        <div class="meta">${esc(c.className)} · Lv ${c.level} · ${esc(c.server)} · ${esc(c.race)} · CP ${Number(c.combatPower).toLocaleString('de-DE')}</div></div>
+      <div class="gs"><b>${d.official}</b><small>Gearscore · Summe ${total} <span class="${match ? 'ok' : 'bad'}">${match ? '✓ passt' : `≠ (Δ ${d.official - total})`}</span>
+        · <a href="#" id="re" style="color:var(--muted)">neu laden</a></small></div>
+    </div>
+    <div class="bar">${bar}</div>
+    <div class="legend">${legend}</div>
+    ${d.warnings.map((w) => `<p class="warn">⚠ ${esc(w)}</p>`).join('')}
+  </div>
+  <div class="card"><h2>Ausrüstung</h2><div class="tablewrap"><table>
+    <tr><th>Slot</th><th>Item</th><th>Basis</th><th>Verstärkung</th><th>Sterne</th><th>Manasteine</th><th>Götterstein</th><th>Summe</th></tr>
+    ${rows}
+    <tr class="total"><td></td><td>Gesamt Ausrüstung</td><td>${t.base}</td><td>${t.enchant}</td><td>${t.stars}</td><td>${t.manastones}</td><td>${god}${t.godstonesFromDiff != null ? '*' : ''}</td>
+      <td>${t.base + t.enchant + t.stars + t.manastones + god}</td></tr>
+  </table></div>${godNote}</div>
+  <div class="card"><h2>Daevanion-Bretter</h2><div class="tablewrap"><table>
+    <tr><th>Brett</th><th>Fortschritt</th><th>Weiß ×1</th><th>Grün ×2</th><th>Blau ×3</th><th>Gold ×4</th><th>Summe</th></tr>
+    ${boardRows}
+    <tr class="total"><td></td><td>Gesamt Daevanion</td><td></td><td></td><td></td><td></td><td>${t.daevanion}</td></tr>
+  </table></div></div>
+  <div id="upg"></div>`;
+  $('#re').onclick = (e) => { e.preventDefault(); run(link, '', true); };
+  renderUpgrades(d, false);
+}
+
+// ---------- Verbesserungspotenzial ----------
+const KIND = { enchant: ['Verstärkung', '--c-enchant'], stars: ['Sterne', '--c-stars'], mana: ['Manasteine', '--c-mana'], swap: ['Item-Wechsel', '--c-base'], daevanion: ['Daevanion', '--c-dv'] };
+function renderUpgrades(d, craft) {
+  const u = craft ? d.upgradesCraft : d.upgrades;
+  const box = $('#upg');
+  if (!u) { box.innerHTML = ''; return; }
+  if (!u.available) { box.innerHTML = `<div class="card"><h2>Verbesserungspotenzial</h2><p class="note">${esc(u.reason)}</p></div>`; return; }
+  const other = craft ? d.upgrades : d.upgradesCraft;
+  const g = u.gains;
+  const chips = Object.entries(KIND).map(([k, [l, col]]) => `<span><i style="background:var(${col})"></i>${l} <b>+${g[k] || 0}</b></span>`).join('');
+  const bar = Object.entries(KIND).map(([k, [, col]]) => `<div style="width:${(100 * (g[k] || 0)) / Math.max(1, g.total)}%;background:var(${col})"></div>`).join('');
+  const top = u.actions.slice(0, 12).map((a) => `<tr><td class="slot">${esc(a.slot)}</td>
+      <td style="text-align:left"><i style="display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;background:var(${KIND[a.kind][1]})"></i>${esc(a.label)}${a.detail ? ` <span class="dim">(${esc(a.detail)})</span>` : ''}</td>
+      <td class="sum pos">+${a.gain}</td></tr>`).join('');
+  const slotRows = u.slots.map((s) => {
+    const steps = s.steps.map((st) => `<span class="chip">${esc(st.label)} <b class="pos">+${st.gain}</b></span>`).join(' ');
+    const swap = s.swap && s.swap.max > s.keepMax
+      ? `<span class="g-${s.swap.grade}">${esc(s.swap.name)}</span><div class="formula" style="color:var(--muted);font-size:12px">Basis ${s.swap.level} · max +${s.swap.maxEnchant}${s.swap.maxExceed ? ` · ${s.swap.maxExceed}★` : ''}${s.swap.msSlots ? ` · ${s.swap.msSlots} MS` : ''} → ${s.swap.max} · ${esc(s.swap.sources.join(', ') || '?')}</div>`
+      : '<span class="dim">–</span>';
+    return `<tr><td class="slot">${esc(s.slotDe)}</td><td>${s.current}</td>
+      <td style="text-align:left;white-space:normal">${steps || '<span class="dim">ausgereizt</span>'}${s.keepGain ? `<div class="formula" style="color:var(--muted);font-size:12px">→ ${s.keepMax}</div>` : ''}</td>
+      <td style="text-align:left;white-space:normal">${swap}</td>
+      <td class="sum ${s.potential ? 'pos' : 'zero'}">${s.potential ? '+' + s.potential : '0'}</td></tr>`;
+  }).join('');
+  const dvRows = u.boards.map((b) => `<tr><td class="slot">${esc(b.name)}</td><td>${b.current}</td>
+      <td style="text-align:left">${b.missing ? Object.entries(b.missing).map(([gr, n]) => `<span class="g-${gr}">${n}× ${GRADE_DE[gr] || gr}</span>`).join(' · ') || '<span class="dim">komplett</span>' : '<span class="dim">unbekannt</span>'}</td>
+      <td>${b.max ?? '?'}</td><td class="sum ${b.gain ? 'pos' : 'zero'}">${b.gain ? '+' + b.gain : '0'}</td></tr>`).join('');
+  const cat = u.catalog;
+  box.innerHTML = `
+  <div class="card">
+    <h2 style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap">Verbesserungspotenzial ${craft ? '(mit Crafting)' : '(ohne Crafting)'}
+      <label style="text-transform:none;letter-spacing:0;font-weight:400;cursor:pointer"><input type="checkbox" id="craftT" ${craft ? 'checked' : ''} style="flex:none;padding:0;margin-right:6px;vertical-align:-2px">Gecraftete Items zulassen</label></h2>
+    <div class="hero">
+      <div><div class="meta">Jetzt</div><div style="font-size:26px;font-weight:700">${u.current}</div></div>
+      <div style="font-size:22px;color:var(--muted)">→</div>
+      <div><div class="meta">Maximal erreichbar</div><div style="font-size:26px;font-weight:700;color:var(--accent)">${u.max} <span class="pos" style="font-size:18px">+${g.total}</span></div></div>
+      <div class="gs"><small>nur Ausrüstung: ${u.maxGear} (+${g.gear})<br>Daevanion komplett: +${g.daevanion}<br>${craft ? 'ohne' : 'mit'} Crafting wären es ${other?.max ?? '?'}</small></div>
+    </div>
+    <div class="bar">${bar}</div>
+    <div class="legend">${chips}</div>
+  </div>
+  <div class="card"><h2>Größte Hebel</h2><div class="tablewrap"><table>${top || '<tr><td>Nichts mehr zu holen 🎉</td></tr>'}</table></div></div>
+  <div class="card"><h2>Pro Slot</h2><div class="tablewrap"><table>
+    <tr><th>Slot</th><th>Jetzt</th><th style="text-align:left">Aktuelles Item ausreizen</th><th style="text-align:left">Besseres Item ${craft ? '' : '(ohne Crafting)'}</th><th>Potenzial</th></tr>
+    ${slotRows}
+  </table></div></div>
+  <div class="card"><h2>Daevanion – fehlende Knoten</h2><div class="tablewrap"><table>
+    <tr><th>Brett</th><th>Jetzt</th><th style="text-align:left">Noch offen</th><th>Max</th><th>Potenzial</th></tr>
+    ${dvRows}
+  </table></div>
+  <p class="note">Item-Daten: ${cat.items} Items aus ${cat.characters} Global-Charakteren, Stand ${new Date(cat.updatedAt).toLocaleDateString('de-DE')} (aktualisieren: <code>npm run catalog</code>).
+  ${u.notes.map(esc).join(' ')} „Ohne Crafting“ schließt Items aus, die nur über Crafting erhältlich sind.</p></div>`;
+  $('#craftT').onchange = (e) => renderUpgrades(d, e.target.checked);
+}
+
+$('#f').onsubmit = (e) => {
+  e.preventDefault();
+  const a = $('#u').value.trim(), b = $('#v').value.trim();
+  if (a && b) run(a, b); else if (a || b) run(a || b);
+};
+const qs = new URLSearchParams(location.search);
+const pre = qs.get('url'), preVs = qs.get('vs') || '';
+if (pre) { $('#u').value = pre; $('#v').value = preVs; run(pre, preVs); }
+</script>
+</body>
+</html>
